@@ -54,6 +54,7 @@ async function getPosts() {
 
 async function newPostSubmit(event) {
   event.preventDefault();
+  event.stopPropagation()
   const content = document.getElementById("newPost").value
   data = {content: content};
   let response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {

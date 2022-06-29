@@ -31,13 +31,13 @@ async function getPosts() {
         status: response.status
       })
       ).then(res => {
-        console.log(res.status, res.data)
+        addPosts(res.data);
       }));
 }
 
 
  async function addPosts(data) {
-  x = data['data']['content'].forEach(
+  x = data['data'].forEach(
       (post) => {
         console.log(post)
         let postElement = document.createElement('div')

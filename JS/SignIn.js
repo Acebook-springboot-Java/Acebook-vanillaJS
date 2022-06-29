@@ -1,5 +1,5 @@
 window.onload = function(){
-    var form = document.getElementById("loginForm");
+    var form = document.getElementById("signInForm");
     form.addEventListener("submit", loginSubmit,true);
 };
 
@@ -8,8 +8,9 @@ function loginSubmit(e) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const url ="https://rocky-forest-99036.herokuapp.com/login"
-    let response = postData(url, { "username": username, "password": password }).then(data => { console.log(data) });
-    console.log(response);
+    let response = postData(url, { "username": username, "password": password })
+        .then(data => { data });
+    // console.log(response);
 }
  
 async function postData(url = '', data = {}) { 
@@ -22,5 +23,7 @@ async function postData(url = '', data = {}) {
         mode: "cors",
         body: JSON.stringify(data)
     });
+    console.log("response" + response);
+    console.log("response header" + response.headers);
     return response.json();
 }

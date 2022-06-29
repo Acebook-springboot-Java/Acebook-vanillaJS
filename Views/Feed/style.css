@@ -237,8 +237,7 @@ div{
   width: 450px;
   min-height: 200px;
   border: 1px;
-  border-style: dotted;
-  border-color: #fff;
+  box-shadow: #444;
 }
 
 
@@ -248,8 +247,8 @@ div{
   justify-content: center;
   align-items: center;
   min-width: 0;
-  background-color: transparent;
-  color: aqua;
+  background-color: #fff;
+  color: black;
   margin: 2% auto 3%;
   
 }

@@ -52,11 +52,11 @@ async function getPosts() {
 }
 
 function submit(e) {
+  e.preventDefault();
   newPostSubmit();
 }
 
 async function newPostSubmit() {
-  e.stopImmediatePropagation();
   const content = document.getElementById("newPost").value
   data = {content: content};
   await fetch('https://rocky-forest-99036.herokuapp.com/posts', {

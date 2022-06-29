@@ -56,7 +56,7 @@ async function newPostSubmit(event) {
   event.preventDefault();
   const content = document.getElementById("newPost").value
   data = {content: content};
-  let response = await fetch('https://rocky-forest-99036.herokuapp.com/api/posts', {
+  let response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
     method: 'POST',
     credentials: "include",
     mode: "cors",

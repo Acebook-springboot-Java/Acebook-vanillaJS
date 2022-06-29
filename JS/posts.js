@@ -25,8 +25,18 @@ async function getPosts() {
       "Authorization":"Bearer"
     },
   })
-      .then(response => console.log(response.json()))
-      .then(data => addPosts(data))
+  .then(function(res) {
+    if (res.status == 200 && res.ok) {
+        console.log("Promise resolved")
+        console.log(res.json());
+    }
+    console.log("Promise rejected");
+    throw 'promise rejected';
+  },
+  function(rej) {
+    console.log("promise rejected");
+    throw 'promise rejected';
+})
 }
 
 

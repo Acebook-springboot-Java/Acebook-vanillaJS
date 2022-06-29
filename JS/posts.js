@@ -58,8 +58,11 @@ async function newPostSubmit(event) {
   data = {content: content};
   let response = await fetch('https://rocky-forest-99036.herokuapp.com/api/posts', {
     method: 'POST',
+    credentials: "include",
+    mode: "cors",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
+      "Authorization": "Bearer"
     },
     body:JSON.stringify(data)})
 }

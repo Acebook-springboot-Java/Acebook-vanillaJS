@@ -32,12 +32,12 @@ async function getPosts() {
 
 
  async function addPosts(data) {
-  console.log(data);
-  x = data['_embedded']['posts'].forEach(
+  x = data['data']['content'].forEach(
       (post) => {
+        console.log(post)
         let postElement = document.createElement('div')
         postElement.setAttribute("class", "posts");
-        postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
+        //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
         postElement.innerText = post.content
         document.body.append(postElement)
         

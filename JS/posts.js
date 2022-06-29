@@ -13,7 +13,7 @@ window.onload = (event) => {
   search.addEventListener("click", searchToggle);
   
 
-  fetch('https://rocky-forest-99036.herokuapp.com/posts', {
+  await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
     method: 'GET',
     credentials: "include",
     mode: "cors",
@@ -22,14 +22,14 @@ window.onload = (event) => {
       "Authorization":"Bearer"
     },
   })
-      .then(response => response.json())
+      .then(response => console.log(response.json()))
       .then(data => addPosts(data))
-      console.log("hit")
+      
 };
 
 
 function addPosts(data) {
-  console.log("hit2");
+  console.log(data);
   x = data['_embedded']['posts'].forEach(
       (post) => {
         let postElement = document.createElement('div')
@@ -37,7 +37,7 @@ function addPosts(data) {
         postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
         postElement.innerText = post.content
         document.body.append(postElement)
-        console.log(postElement)
+        
         
       }
   )

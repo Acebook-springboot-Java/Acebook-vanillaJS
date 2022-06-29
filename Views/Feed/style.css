@@ -245,11 +245,10 @@ div{
 
 .posts{
   display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 0;
-  
   background-color: transparent;
-  
-  
   color: aqua;
   margin: 2% auto 3%;
   

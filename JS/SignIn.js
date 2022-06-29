@@ -7,7 +7,7 @@ function loginSubmit(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    const url ="http://localhost:8080/login"
+    const url ="https://rocky-forest-99036.herokuapp.com/login"
     let response = postData(url, { "username": username, "password": password }).then(data => { console.log(data) });
     if(response.status === 409){
         Swal.fire({

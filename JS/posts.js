@@ -21,24 +21,19 @@ async function getPosts() {
     credentials: "include",
     mode: "cors",
     headers: {
-      "Content-Type":"application/json",
-      "Authorization":"Bearer"
+      "Content-Type": "application/json",
+      "Authorization": "Bearer"
     },
   })
-  .then(function(res) {
-    if (res.status == 200 && res.ok) {
-        console.log("Promise resolved")
-        console.log(res.json());
-    }
-    console.log("Promise rejected");
-    throw 'promise rejected';
-  },
-  function(rej) {
-    console.log("promise rejected");
-    throw 'promise rejected';
-})
+    .then(response =>
+      response.json().then(data => ({
+        data: data,
+        status: response.status
+      })
+      ).then(res => {
+        console.log(res.status, res.data)
+      }));
 }
-
 
 
  async function addPosts(data) {

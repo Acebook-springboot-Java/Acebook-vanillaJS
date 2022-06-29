@@ -52,12 +52,11 @@ async function getPosts() {
 }
 
 function submit(e) {
-  e.preventDefault();
+  e.stopImmediatePropagation();
   newPostSubmit();
 }
 
 async function newPostSubmit() {
-  
   const content = document.getElementById("newPost").value
   data = {content: content};
   let response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
@@ -68,7 +67,8 @@ async function newPostSubmit() {
       "Content-Type": "application/json",
       "Authorization": "Bearer"
     },
-    body:JSON.stringify(data)})
+    body: JSON.stringify(data)
+  });
 }
 
 function profileNavigate() {

@@ -25,10 +25,12 @@ window.onload = (event) => {
   })
       .then(response => response.json())
       .then(data => addPosts(data))
+      console.log("hit")
 };
 
 
 function addPosts(data) {
+  console.log("hit");
   x = data['_embedded']['posts'].forEach(
       (post) => {
         let postElement = document.createElement('div')

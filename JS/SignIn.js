@@ -9,15 +9,7 @@ function loginSubmit(e) {
     const password = document.getElementById("password").value;
     const url ="https://rocky-forest-99036.herokuapp.com/login"
     let response = postData(url, { "username": username, "password": password }).then(data => { console.log(data) });
-    if(response.status === 403){
-        Swal.fire({
-          icon: 'error',
-          title: 'too bad!',
-          text: `Username ${username} is allready in use!`
-        })
-       } else {
-         window.location.href = "../../Views/Feed/Feed.html"
-       }
+    console.log(response);
 }
  
 async function postData(url = '', data = {}) { 

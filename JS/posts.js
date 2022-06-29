@@ -18,8 +18,7 @@ window.onload = (event) => {
     credentials: "include",
     mode: "cors",
     headers: {
-      "Content-Type":
-      "application/json",
+      "Content-Type":"application/json",
       "Authorization":"Bearer"
     },
   })
@@ -30,7 +29,7 @@ window.onload = (event) => {
 
 
 function addPosts(data) {
-  console.log("hit");
+  console.log("hit2");
   x = data['_embedded']['posts'].forEach(
       (post) => {
         let postElement = document.createElement('div')

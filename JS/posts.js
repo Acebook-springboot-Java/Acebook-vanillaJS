@@ -69,7 +69,12 @@ async function newPostSubmit() {
     },
     body: JSON.stringify(data)
   })
-    .then(response => console.log(response));
+    .then(res => { 
+      if (res.status == 200) { 
+        window.location.href = "../../Views/Feed/Feed.html"
+      }
+    } 
+  )
 }
 
 function profileNavigate() {

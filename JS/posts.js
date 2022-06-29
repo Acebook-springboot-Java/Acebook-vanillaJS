@@ -28,7 +28,7 @@ window.onload = (event) => {
 };
 
 
-function addPosts(data) {
+ async function addPosts(data) {
   console.log(data);
   x = data['_embedded']['posts'].forEach(
       (post) => {

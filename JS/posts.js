@@ -1,7 +1,7 @@
 
 window.onload = (event) => {
   var postForm = document.getElementById("newPostTextArea");
-  postForm.addEventListener("submit", newPostSubmit, true);
+  postForm.addEventListener("submit", submit );
 
   var profileNav = document.getElementById("btn_profile");
   profileNav.addEventListener("click", profileNavigate);
@@ -51,10 +51,13 @@ async function getPosts() {
   )
 }
 
+function submit(e) {
+  e.preventDefault();
+  newPostSubmit();
+}
 
-async function newPostSubmit(event) {
-  event.preventDefault();
-  event.stopPropagation()
+async function newPostSubmit() {
+  
   const content = document.getElementById("newPost").value
   data = {content: content};
   let response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {

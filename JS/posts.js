@@ -11,8 +11,11 @@ window.onload = (event) => {
 
   var search = document.getElementById("search_btn");
   search.addEventListener("click", searchToggle);
-  
 
+  getPosts();
+};
+  
+async function getPosts() {
   await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
     method: 'GET',
     credentials: "include",
@@ -24,8 +27,8 @@ window.onload = (event) => {
   })
       .then(response => console.log(response.json()))
       .then(data => addPosts(data))
-      
-};
+}
+
 
 
  async function addPosts(data) {

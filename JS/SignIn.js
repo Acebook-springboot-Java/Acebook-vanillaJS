@@ -6,7 +6,7 @@ window.onload = function(){
 function loginSubmit(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const password = document.getElementById("psw").value;
     const url ="https://rocky-forest-99036.herokuapp.com/login"
     let response = postData(url, { "username": username, "password": password })
         .then(data => { data });

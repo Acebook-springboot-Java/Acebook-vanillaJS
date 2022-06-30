@@ -41,6 +41,16 @@ async function getPosts() {
       (post) => {
         console.log(post)
         let postElement = document.createElement('div')
+        let buttonHolder = document.createElement('ul')
+        let editButton = document.createElement('li')
+        let deleteButton = document.createElement('li')
+
+        editButton.innerText = "Edit"
+        
+        buttonHolder.append(editButton)
+        buttonHolder.append(deleteButton)
+        postElement.append(buttonHolder)
+
         postElement.setAttribute("class", "posts");
         //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
         postElement.innerText = post.content

@@ -204,7 +204,6 @@ textarea {
   background-color: transparent;
 }
 #newPost{
-  
   margin: 2% auto;
   outline-color: transparent;
   outline-style: none;
@@ -217,7 +216,6 @@ textarea {
 #postSubmitButtn{
   margin: -2.3% auto 5%;
   background:rgb(111, 111, 193); 
-  
   margin-left: 280px;
   border: none;
   color: white;

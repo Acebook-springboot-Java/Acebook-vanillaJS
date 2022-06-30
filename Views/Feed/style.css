@@ -204,7 +204,6 @@ textarea {
   background-color: transparent;
 }
 #newPost{
-  
   margin: 2% auto;
   outline-color: transparent;
   outline-style: none;
@@ -217,7 +216,6 @@ textarea {
 #postSubmitButtn{
   margin: -2.3% auto 5%;
   background:rgb(111, 111, 193); 
-  
   margin-left: 280px;
   border: none;
   color: white;
@@ -237,20 +235,18 @@ div{
   width: 450px;
   min-height: 200px;
   border: 1px;
-  border-style: dotted;
-  border-color: #fff;
+  box-shadow: #444;
 }
 
 
 
 .posts{
   display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 0;
-  
-  background-color: transparent;
-  
-  
-  color: aqua;
+  background-color: #fff;
+  color: black;
   margin: 2% auto 3%;
   
 }

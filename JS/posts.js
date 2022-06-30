@@ -120,7 +120,8 @@ async function removePost(){
 
 async function logoutSubmit() { 
   let response = await logout();
-  console.log(response);
+  localStorage.removeItem("currentUser");
+  window.location.href = "../../Views/login/login.html"
 }
 
 async function logout() {

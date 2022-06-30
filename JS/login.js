@@ -9,8 +9,25 @@ function loginSubmit(e) {
     const password = document.getElementById("psw").value;
     const url ="https://rocky-forest-99036.herokuapp.com/login"
     let response = postData(url, { "username": username, "password": password })
-        .then(data => {console.log(data)});
-    console.log(response);
+        .then(data => {
+            if (data.status == "OK") { 
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `You are logged in as ${username}!`,
+                    showConfirmButton: false,
+                    timer: 200
+                })
+                window.location.href = "../../Views/Feed/Feed.html";
+                localStorage.setItem("currentUser",data.data);
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Wrong Credentials',
+                    text: `Please check your username and password`
+                  })
+            }
+        });
 }
  
 async function postData(url = '', data = {}) { 
@@ -23,7 +40,5 @@ async function postData(url = '', data = {}) {
         mode: "cors",
         body: JSON.stringify(data)
     });
-    console.log("response" + response);
-    console.log("response header" + response.headers);
     return response.json();
 }

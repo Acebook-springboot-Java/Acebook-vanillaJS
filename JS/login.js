@@ -16,9 +16,9 @@ function loginSubmit(e) {
                     icon: 'success',
                     title: `You are logged in as ${username}!`,
                     showConfirmButton: false,
-                    timer: 500
+                    timer: 200
                 })
-                window.location.href = "../../Views/SignUp/signUp.html";
+                window.location.href = "../../Views/Feed/Feed.html";
                 localStorage.setItem("currentUser",data.data);
             } else {
                 Swal.fire({

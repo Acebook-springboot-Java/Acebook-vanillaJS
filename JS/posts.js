@@ -101,8 +101,8 @@ async function newPostSubmit() {
   )
 }
 
-async function removePost(){
-  await fetch('https://rocky-forest-99036.herokuapp.com/posts/this.id', {
+async function removePost(e){
+  await fetch(`https://rocky-forest-99036.herokuapp.com/posts/${this.id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

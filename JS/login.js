@@ -16,10 +16,13 @@ function loginSubmit(e) {
                     icon: 'success',
                     title: `You are logged in as ${username}!`,
                     showConfirmButton: false,
-                    timer: 200
+                    timer: 1500
                 })
-                window.location.href = "../../Views/Feed/Feed.html";
-                localStorage.setItem("currentUser",data.data);
+                setTimeout(function() {
+                    window.location.href = "../../Views/Feed/Feed.html";
+                    localStorage.setItem("currentUser",data.data);
+                  }, 1500);
+                
             } else {
                 Swal.fire({
                     icon: 'error',

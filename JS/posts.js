@@ -27,11 +27,11 @@ async function getPosts() {
       title: 'Not Authorized',
       text: `Please log in`,
       showConfirmButton: false,
-      timer: 500
+      timer: 1500
     });
     setTimeout(function() {
       window.location.href = "../../Views/login/login.html"
-    }, 500);
+    }, 1500);
   }
   if (response.status == "200") {
   console.log(response.json().data.data);

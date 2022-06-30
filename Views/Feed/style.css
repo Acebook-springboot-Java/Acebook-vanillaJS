@@ -234,8 +234,8 @@ textarea {
 .editBtn{
   margin: -2.3% auto 5%;
   background:rgb(111, 111, 193); 
-  margin-right: 100px;
-  margin-top: -100px;
+  margin-left: 100px;
+  margin-top: -120px;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -248,7 +248,7 @@ textarea {
 .deleteBtn{
   margin: -2.3% auto 5%;
   background:rgb(111, 111, 193); 
-  margin-left: 100px;
+  margin-right: 100px;
   border: none;
   color: white;
   padding: 15px 32px;

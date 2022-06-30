@@ -12,10 +12,13 @@ window.onload = () => {
   var search = document.getElementById("search_btn");
   search.addEventListener("click", searchToggle);
 
-  var remove = document.getElementById("")
+  var logout = document.getElementById("logout");
+  logout.addEventListener("click", logoutSubmit);
 
   getPosts();
 };
+
+
   
 async function getPosts() {
   await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
@@ -91,6 +94,33 @@ async function newPostSubmit() {
       }
     } 
   )
+}
+
+function logoutSubmit() { 
+  let res = logout();
+  if (res.headers.status == "200") {
+    localStorage.removeItem('currentUser');
+    window.location.href = "../../login/login.html";
+  } else { 
+    console.log("logout not successful try again")
+  }
+}
+
+async function logout() {
+  try {
+    let response = await fetch('https://rocky-forest-99036.herokuapp.com/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer'
+      },
+      credentials: 'include',
+      mode: "cors",
+    });
+  } catch (e) { 
+    console.log(e);
+  }
+  return response;
 }
 
 function profileNavigate() {

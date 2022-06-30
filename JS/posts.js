@@ -12,6 +12,8 @@ window.onload = () => {
   var search = document.getElementById("search_btn");
   search.addEventListener("click", searchToggle);
 
+  var remove = document.getElementById("")
+
   getPosts();
 };
   
@@ -39,22 +41,17 @@ async function getPosts() {
  async function addPosts(data) {
   x = data['data'].forEach(
       (post) => {
+        console.log(post)
         let postElement = document.createElement('div');
         let editButton = document.createElement('button');
         let deleteButton = document.createElement('button')
+
         editButton.innerText = "Edit";
         editButton.setAttribute("class", "editBtn");
+
         deleteButton.innerText = "Delete";
         deleteButton.setAttribute("class", "deleteBtn");
-
-  
-
-        
-
-        
-
-        
-        
+        deleteButton.setAttribute("id", post)
 
         postElement.setAttribute("class", "posts");
         //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));

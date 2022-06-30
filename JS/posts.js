@@ -1,5 +1,5 @@
 
-window.onload = () => {
+window.onload = async() => {
   var postForm = document.getElementById("newPostTextArea");
   postForm.addEventListener("submit", submit);
 

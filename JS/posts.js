@@ -18,9 +18,36 @@ window.onload = async() => {
   await getPosts();
 };
 
-
+async function getPosts() { 
+  let response = await fetchPosts();
+  console.log(`status code: ${response.status}`);
+  if (response.status == "403") { 
+    Swal.fire({
+      icon: 'error',
+      title: 'Not Authorized',
+      text: `Please log in`,
+      showConfirmButton: false,
+      timer: 500
+    });
+    setTimeout(function() {
+      window.location.href = "../../Views/login/login.html"
+    }, 500);
+  }
+  if (response.status == "200") {
+  console.log(response.json().data.data);
+  addPosts(response.json().data.data)
+  }
+    // .then(response =>
+    //   response.json().then(data => ({
+    //     data: data,
+    //     status: response.status
+    //   }))
+    // .then(res => {
+    //     addPosts(res.data);
+    //   }));
+}
   
-async function getPosts() {
+async function fetchPosts() {
   let response;
   try {
     response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
@@ -31,35 +58,15 @@ async function getPosts() {
         "Content-Type": "application/json",
         "Authorization": "Bearer"
       }
-    }).catch((status) => console.log(`status code:${status}`));
+    })
     return response;
   } catch (e) {
     console.log(e)
   }
 }
 
-// Swal.fire({
-//   icon: 'error',
-//   title: 'Not Authorized',
-//   text: `Please log in`,
-//   showConfirmButton: false,
-//   timer: 500
-// })
-// setTimeout(function() {
-//   window.location.href = "../../Views/login/login.html"
-// }, 500);
-// if (response.status == "200") {
-//   console.log(response.json().data.data);
-//   addPosts(response.json().data.data)
-// }
-    // .then(response =>
-    //   response.json().then(data => ({
-    //     data: data,
-    //     status: response.status
-    //   }))
-    // .then(res => {
-    //     addPosts(res.data);
-    //   }));
+
+
 
 
 

@@ -17,7 +17,7 @@ window.onload = () => {
 
   var remove = document.getElementsByClassName("deleteBtn");
   for( var i = 0; i < remove.length; i++) {
-    remove[i].addEventListener('click', removePost);
+    remove[i].addEventListener("click", removePost);
   }
 
   getPosts();
@@ -101,7 +101,7 @@ async function newPostSubmit() {
   )
 }
 
-async function removePost(e){
+function removePost(e){
   console.log("Clicked " + this.id);
 }
 

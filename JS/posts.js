@@ -57,6 +57,7 @@ async function getPosts() {
         deleteButton.setAttribute("id", post['id']);
 
         postElement.setAttribute("class", "posts");
+        postElement.setAttribute("id",post['id']);
         //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
         postElement.innerText = post.content
         let y = document.getElementById('postBox')
@@ -64,6 +65,10 @@ async function getPosts() {
         y.append(deleteButton);
         y.append(postElement);
         
+        var remove = document.getElementsByClassName("deleteBtn");
+        for( var i = 0; i < remove.length; i++) {
+          remove[i].addEventListener("click", removePost);
+        }
         
         
       }
@@ -94,6 +99,18 @@ async function newPostSubmit() {
       }
     } 
   )
+}
+
+async function removePost(e){
+  await fetch(`https://rocky-forest-99036.herokuapp.com/posts/${this.id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+        'Authorization': 'Bearer'
+      },
+      credentials: 'include',
+      mode: "cors",
+  })
 }
 
 async function logoutSubmit() { 

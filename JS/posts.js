@@ -45,7 +45,7 @@ async function getPosts() {
         editButton.innerText = "Edit";
         editButton.setAttribute("class", "editBtn");
         deleteButton.innerText = "Delete";
-        editButton.setAttribute("class", "deleteBtn");
+        deleteButton.setAttribute("class", "deleteBtn");
 
   
 

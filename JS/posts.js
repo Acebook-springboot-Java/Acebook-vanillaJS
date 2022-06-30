@@ -40,12 +40,9 @@ async function getPosts() {
   x = data['data'].forEach(
       (post) => {
         let postElement = document.createElement('div');
-        let editButton = document.createElement('BUTTON');
-        let deleteButton = document.createElement('BUTTON');
-
-        let text = document.createTextNode("Button");
-        editButton.appendChild(text);
-        postElement.appendChild(editButton);
+        let editButton = document.createElement('button')
+        editButton.innerText = "Edit";
+  
 
         
 
@@ -58,6 +55,7 @@ async function getPosts() {
         //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
         postElement.innerText = post.content
         document.body.append(postElement)
+        document.body.append(editButton)
         
         
       }

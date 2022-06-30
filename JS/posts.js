@@ -97,14 +97,8 @@ async function newPostSubmit() {
 }
 
 async function logoutSubmit() { 
-  let response;
-  try {
-    response = await logout();
-    localStorage.removeItem('currentUser');
-    window.location.href = "../../login/login.html";
-  } catch (e) {
-    console.log("logout not successful try again")
-  }
+  let response = await logout();
+  console.log(response);
 }
 
 async function logout() {

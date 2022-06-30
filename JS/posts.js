@@ -101,6 +101,10 @@ async function newPostSubmit() {
   )
 }
 
+function logoutSubmit() { 
+  logout();
+}
+
 async function logout() {
   await fetch('https://rocky-forest-99036.herokuapp.com/logout', {
     method: 'POST',

@@ -96,7 +96,7 @@ async function newPostSubmit() {
   )
 }
 
-function logoutSubmit() { 
+async function logoutSubmit() { 
   let response;
   try {
     response = await logout();

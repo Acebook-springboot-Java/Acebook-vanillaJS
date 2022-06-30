@@ -57,6 +57,7 @@ async function getPosts() {
         deleteButton.setAttribute("id", post['id']);
 
         postElement.setAttribute("class", "posts");
+        postElement.setAttribute("id",post['id']);
         //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
         postElement.innerText = post.content
         let y = document.getElementById('postBox')

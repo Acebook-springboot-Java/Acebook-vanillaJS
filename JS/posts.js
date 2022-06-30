@@ -101,8 +101,16 @@ async function newPostSubmit() {
   )
 }
 
-function removePost(e){
-  console.log("Clicked " + this.id);
+async function removePost(){
+  await fetch('https://rocky-forest-99036.herokuapp.com/posts/this.id', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+        'Authorization': 'Bearer'
+      },
+      credentials: 'include',
+      mode: "cors",
+  })
 }
 
 async function logoutSubmit() { 

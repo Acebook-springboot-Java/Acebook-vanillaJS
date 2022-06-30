@@ -43,8 +43,8 @@ body h1{
 	  color: #fff;
 	padding: 1em 0;
 }
-/*---signin-form--------*/
-.signin {
+/*---login-form--------*/
+.login {
   margin:1% auto 7%;
   width:36%;
   background: #fff;
@@ -88,7 +88,7 @@ form {
 .key {
     background: url(../images/icons.png) no-repeat 0px -57px;
 }
-.signin input[type="text"],.signin input[type="password"] {
+.login input[type="text"],.login input[type="password"] {
    width: 86.9%;
   padding:1em 1em 1em 3em;
   color: #999;
@@ -98,7 +98,7 @@ form {
   border: none;
   background: none;
 }
-.signin input[type="password"] {
+.login input[type="password"] {
   width: 65.9%;
 }
 .dropbox {
@@ -204,7 +204,7 @@ form {
 }
 /*-----start-responsive-design------*/
 @media (max-width:1440px){
-  .signin {
+  .login {
   margin:2% auto 7%;
   width:38%;
   }
@@ -217,17 +217,17 @@ form {
 }
 }
 @media (max-width:1366px){
-  .signin {
+  .login {
   margin: 2% auto 7%;
     width: 42%;
 }
- .signin input[type="text"], .signin input[type="password"] {
+ .login input[type="text"], .login input[type="password"] {
     width: 85.9%;
 }
-.signin input[type="password"] {
+.login input[type="password"] {
   width: 73.9%;
 }
-	.thd-signin input[type="password"] {
+	.thd-login input[type="password"] {
   width: 43.8%;
   float: left;
   margin-right: 1%;
@@ -256,15 +256,15 @@ form {
   }
 }
 @media (max-width:1280px){
-   .signin {
+   .login {
   margin: 2% auto 7%;
     width: 49%;
   }
-    .sec-signin {
+    .sec-login {
     margin: 8% auto 7%;
     width: 54%;
   }
-  .thd-signin {
+  .thd-login {
     margin: 0 auto;
     width: 55%;
     padding-top: 6em;
@@ -272,7 +272,7 @@ form {
 	
 }
 @media (max-width:1024px){
-   .signin {
+   .login {
   margin: 2% auto 7%;
   width: 69%;
   }
@@ -296,17 +296,17 @@ form {
   font-size: 2.2em;
     padding-top: 3em;
   }
-  .signin {
+  .login {
   margin: 6% auto 18%;
     width: 81%;
 }
 }
 @media (max-width:640px){
-  .signin {
+  .login {
   margin: 2% auto 7%;
   width: 87%;
 }
-  .signin input[type="text"] {
+  .login input[type="text"] {
   width: 84.9%;
   }
   .submit input[type="submit"] {
@@ -342,11 +342,11 @@ form {
 }
 
 @media (max-width:480px){
-  .signin {
+  .login {
   margin: 2% auto 7%;
   width: 93%;
 }
-  .signin input[type="text"] {
+  .login input[type="text"] {
    width: 83.9%;
    padding: 0.8em 1em 0.8em 3em;
   }
@@ -385,14 +385,14 @@ form {
 	
 }
 @media (max-width:320px){
-  .signin {
+  .login {
   margin: 2% auto 7%;
   width: 94%;
 }
 	body h1 {
   font-size: 1.3em;
   }
-  .signin input[type="text"] {
+  .login input[type="text"] {
   width: 75.9%;
   padding: 0.8em 1em 0.8em 3em;
   font-size: 15px;

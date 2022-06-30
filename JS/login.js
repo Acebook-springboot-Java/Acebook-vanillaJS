@@ -1,6 +1,6 @@
 window.onload = function(){
-    var form = document.getElementById("signInForm");
-    form.addEventListener("submit", loginSubmit,true);
+    var form = document.getElementById("loginForm");
+    form.addEventListener("submit", loginSubmit);
 };
 
 function loginSubmit(e) {
@@ -9,8 +9,8 @@ function loginSubmit(e) {
     const password = document.getElementById("psw").value;
     const url ="https://rocky-forest-99036.herokuapp.com/login"
     let response = postData(url, { "username": username, "password": password })
-        .then(data => { data });
-    // console.log(response);
+        .then(data => {console.log(data)});
+    console.log(response);
 }
  
 async function postData(url = '', data = {}) { 

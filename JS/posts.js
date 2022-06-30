@@ -39,17 +39,17 @@ async function getPosts() {
  async function addPosts(data) {
   x = data['data'].forEach(
       (post) => {
-        console.log(post)
-        let postElement = document.createElement('div')
-        let buttonHolder = document.createElement('ul')
-        let editButton = document.createElement('li')
-        let deleteButton = document.createElement('li')
+        let postElement = document.createElement('div');
+        let editButton = document.createElement('button');
+        let deleteButton = document.createElement('button');
 
-        editButton.innerText = "Edit"
+        editButton.innerHTML = "Edit";
+        deleteButton.innerHTML = "Delete";
+
+        postElement.append(editButton);
+
         
-        buttonHolder.append(editButton)
-        buttonHolder.append(deleteButton)
-        postElement.append(buttonHolder)
+        
 
         postElement.setAttribute("class", "posts");
         //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));

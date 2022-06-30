@@ -257,12 +257,6 @@ textarea {
   font-size: 12px;
 }
 
-div{
-  width: 450px;
-  min-height: 200px;
-  border: 1px;
-  box-shadow: #444;
-}
 .postBox{
   display: flex;
   justify-content: center;
@@ -272,6 +266,8 @@ div{
 
 
 .posts{
+  width: 450px;
+  min-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;

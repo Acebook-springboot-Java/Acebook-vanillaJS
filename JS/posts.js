@@ -103,6 +103,7 @@ async function newPostSubmit() {
 
 function logoutSubmit() { 
   let res = logout();
+  console.log(res.json().status);
   if (res.headers.status == "200") {
     localStorage.removeItem('currentUser');
     window.location.href = "../../login/login.html";
@@ -112,7 +113,6 @@ function logoutSubmit() {
 }
 
 async function logout() {
-  try {
     let response = await fetch('https://rocky-forest-99036.herokuapp.com/logout', {
       method: 'POST',
       headers: {
@@ -122,10 +122,7 @@ async function logout() {
       credentials: 'include',
       mode: "cors",
     });
-  } catch (e) { 
-    console.log(e);
-  }
-  return response;
+    return response;
 }
 
 function profileNavigate() {

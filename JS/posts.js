@@ -101,7 +101,7 @@ async function newPostSubmit() {
   )
 }
 
-async function removePost(e){
+async function removePost(){
   await fetch(`https://rocky-forest-99036.herokuapp.com/posts/${this.id}`, {
     method: 'DELETE',
     headers: {
@@ -110,6 +110,11 @@ async function removePost(e){
       },
       credentials: 'include',
       mode: "cors",
+  })
+  .then(res => {
+    if(res.status == 200) {
+      window.location.href = "../../Views/Feed/Feed.html"
+    }
   })
 }
 

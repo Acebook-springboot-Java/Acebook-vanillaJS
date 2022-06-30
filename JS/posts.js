@@ -43,7 +43,10 @@ async function getPosts() {
         let editButton = document.createElement('button');
         let deleteButton = document.createElement('button')
         editButton.innerText = "Edit";
+        editButton.setAttribute("class", "editBtn");
         deleteButton.innerText = "Delete";
+        editButton.setAttribute("class", "deleteBtn");
+
   
 
         

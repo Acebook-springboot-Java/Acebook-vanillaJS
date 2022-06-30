@@ -257,7 +257,7 @@ textarea {
   font-size: 12px;
 }
 
-.postBox{
+#postBox{
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;

@@ -112,7 +112,7 @@ async function logout() {
       mode: "cors",
     });
     
-  
+  console.log(response.status);
   if (response.status == 200) { 
     return response;
   }

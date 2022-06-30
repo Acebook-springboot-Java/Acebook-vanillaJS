@@ -15,6 +15,9 @@ window.onload = () => {
   var logout = document.getElementById("logout");
   logout.addEventListener("click", logoutSubmit);
 
+  var remove = document.getElementsByClassName("deleteBtn");
+  remove.addEventListener("click", removePost);
+
   getPosts();
 };
 
@@ -94,6 +97,10 @@ async function newPostSubmit() {
       }
     } 
   )
+}
+
+async function removePost(e){
+  console.log(e);
 }
 
 async function logoutSubmit() { 

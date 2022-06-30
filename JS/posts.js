@@ -97,12 +97,12 @@ async function newPostSubmit() {
 }
 
 function logoutSubmit() { 
-  let res = logout();
-  console.log(res.json().status);
-  if (res.headers.status == "200") {
+  let response;
+  try {
+    response = await logout();
     localStorage.removeItem('currentUser');
     window.location.href = "../../login/login.html";
-  } else { 
+  } catch (e) {
     console.log("logout not successful try again")
   }
 }
@@ -117,7 +117,13 @@ async function logout() {
       credentials: 'include',
       mode: "cors",
     });
+    
+  
+  if (response.status == 200) { 
     return response;
+  }
+
+  throw new Error(response.status);
 }
 
 function profileNavigate() {

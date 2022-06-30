@@ -59,9 +59,10 @@ async function getPosts() {
         postElement.setAttribute("class", "posts");
         //postElement.setAttribute("id", post['_links']['post']['href'].slice(-1));
         postElement.innerText = post.content
-        document.body.append(postElement);
-        document.body.append(editButton);
-        document.body.append(deleteButton);
+        let y = document.getElementById('postBox')
+        y.append(postElement);
+        y.append(editButton);
+        y.append(deleteButton);
         
         
       }

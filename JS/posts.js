@@ -16,7 +16,9 @@ window.onload = () => {
   logout.addEventListener("click", logoutSubmit);
 
   var remove = document.getElementsByClassName("deleteBtn");
-  remove.addEventListener("click", removePost);
+  for( var i = 0; i < remove.length; i++) {
+    remove[i].addEventListener('click', removePost);
+  }
 
   getPosts();
 };
@@ -100,7 +102,7 @@ async function newPostSubmit() {
 }
 
 async function removePost(e){
-  console.log(e);
+  console.log("Clicked " + this.id);
 }
 
 async function logoutSubmit() { 

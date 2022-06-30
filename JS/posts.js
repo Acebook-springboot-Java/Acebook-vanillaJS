@@ -109,7 +109,10 @@ async function logout() {
     },
     credentials: 'include',
     mode: "cors",
-  });
+  }).resolve().then(() => {
+    localStorage.removeItem('currentUser');
+    window.location.href = "../../login/login.html";
+  })
 }
 
 function profileNavigate() {

@@ -259,9 +259,10 @@ textarea {
 
 .postBox{
   display: flex;
+  flex-direction: column-reverse;
   justify-content: center;
   align-content: center;
-  flex-direction: column-reverse;
+  
 }
 
 

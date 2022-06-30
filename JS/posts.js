@@ -40,13 +40,16 @@ async function getPosts() {
   x = data['data'].forEach(
       (post) => {
         let postElement = document.createElement('div');
-        let editButton = document.createElement('button');
-        let deleteButton = document.createElement('button');
+        let editButton = document.createElement('BUTTON');
+        let deleteButton = document.createElement('BUTTON');
 
-        editButton.innerHTML = "Edit";
-        deleteButton.innerHTML = "Delete";
+        let text = document.createTextNode("Button");
+        editButton.appendChild(text);
+        postElement.appendChild(editButton);
 
-        postElement.append(editButton);
+        
+
+        
 
         
         

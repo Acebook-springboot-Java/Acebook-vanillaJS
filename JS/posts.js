@@ -34,14 +34,12 @@ async function getPosts() {
     }, 1500);
   }
   if (response.status == "200") {
-  await response.then(response =>
-      response.json().then(data => ({
-        data: data,
-        status: response.status
-      }))
-    .then(res => {
-        addPosts(res.data);
-      }));
+    response.json().then(data => ({
+          data: data,
+          status: response.status
+        })).then(res => {
+              addPosts(res.data);
+            });
   }
     // .then(response =>
     //   response.json().then(data => ({

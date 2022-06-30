@@ -231,16 +231,44 @@ textarea {
   cursor: pointer;
 }
 
-div{
-  width: 450px;
-  min-height: 200px;
-  border: 1px;
-  box-shadow: #444;
+.editBtn{
+  margin: -2.3% auto 5%;
+  background:rgb(111, 111, 193); 
+  
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 12px;
+}
+
+.deleteBtn{
+  margin: -2.3% auto 5%;
+  background:rgb(111, 111, 193); 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 12px;
+}
+
+#postBox{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-content: center;
+  
 }
 
 
 
 .posts{
+  width: 450px;
+  min-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;

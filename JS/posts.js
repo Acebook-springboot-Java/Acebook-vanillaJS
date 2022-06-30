@@ -34,7 +34,7 @@ async function getPosts() {
     }, 1500);
   }
   if (response.status == "200") {
-  console.log(response.json().data.data);
+  console.log(response.json());
   addPosts(response.json().data.data)
   }
     // .then(response =>

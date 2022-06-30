@@ -15,7 +15,7 @@ window.onload = () => {
   var logout = document.getElementById("logout");
   logout.addEventListener("click", logoutSubmit);
 
-  getPosts();
+  await getPosts();
 };
 
 
@@ -23,7 +23,7 @@ window.onload = () => {
 async function getPosts() {
   let response;
   try {
-    await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
+    response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
       method: 'GET',
       credentials: "include",
       mode: "cors",
@@ -31,8 +31,7 @@ async function getPosts() {
         "Content-Type": "application/json",
         "Authorization": "Bearer"
       }
-    })
-      .catch((status) => console.log(`status code:$(status)`));
+    }).catch((status) => console.log(`status code:${status}`));
     return response;
   } catch (e) {
     console.log(e)

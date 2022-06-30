@@ -21,19 +21,23 @@ window.onload = () => {
 
   
 async function getPosts() {
-  let response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
-    method: 'GET',
-    credentials: "include",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer"
-    },
-  })
-  if (response.status == "200") {
-    console.log(response.json().data.data);
-    addPosts(response.json().data.data)
-  } else { 
+  try {
+    let response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
+      method: 'GET',
+      credentials: "include",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer"
+      },
+    })
+
+    if (response.status == "200") {
+      console.log(response.json().data.data);
+      addPosts(response.json().data.data)
+    }
+  } catch (e) {
+    console.log(e)
     Swal.fire({
       icon: 'error',
       title: 'Not Authorized',
@@ -45,6 +49,8 @@ async function getPosts() {
       window.location.href = "../../Views/login/login.html"
     }, 500);
   }
+}
+  
     // .then(response =>
     //   response.json().then(data => ({
     //     data: data,
@@ -53,7 +59,7 @@ async function getPosts() {
     // .then(res => {
     //     addPosts(res.data);
     //   }));
-}
+
 
 
  async function addPosts(data) {

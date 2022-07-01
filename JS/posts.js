@@ -155,7 +155,7 @@ async function removePost(){
 }
 
 async function editPost(){
-  let editBtn = document.getElementById(this.id)
+  let editBtn = document.getElementById(`${this.id}`)
   
           if (this.id.isContentEditable) {
             editBtn.innerHTML = 'Save Changes';

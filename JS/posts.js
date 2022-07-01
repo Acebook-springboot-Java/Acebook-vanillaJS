@@ -102,11 +102,6 @@ async function fetchPosts() {
         for( var i = 0; i < remove.length; i++) {
           remove[i].addEventListener("click", removePost);
         }
-
-        var edit = document.getElementsByClassName("editBtn");
-        for( var i = 0; i< edit.length; i++) {
-          edit[i].addEventListener("click", editPost);
-        }
       }
   )
 }
@@ -154,24 +149,7 @@ async function removePost(){
   })
 }
 
-async function editPost(){
-  let editBtn = document.getElementById(`${this.id}`)
-  
-          if (this.id.isContentEditable) {
-            editBtn.innerHTML = 'Save Changes';
-            editBtn.style.backgroundColor = '#6F9';
-        } else {
-           // Disable Editing
-          this.id.contentEditable = 'false';
-          // Change Button Text and Color
-          editBtn.innerHTML = 'Enable Editing';
-          editBtn.style.backgroundColor = '#F96';
-          // Save the data in localStorage 
-          //for (var i = 0; i < editables.length; i++) {
-            //localStorage.setItem(editables[i].getAttribute('id'), editables[i].innerHTML);
-          //}
-         }
-}
+
 
 async function logoutSubmit() { 
   let response = await logout();

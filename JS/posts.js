@@ -103,6 +103,10 @@ async function fetchPosts() {
           remove[i].addEventListener("click", removePost);
         }
 
+        var edit = document.getElementsByClassName("editBtn");
+        for( var i = 0; i< edit.length; i++) {
+          edit[i].addEventListener("click", editPost);
+        }
       }
   )
 }
@@ -151,30 +155,21 @@ async function removePost(){
 }
 
 async function editPost(){
-  var editables = document.querySelectorAll(`#${this.id}`)
-  var editBtn = document.getElementById('editBtn');
-        
-        editBtn.addEventListener('click', function(e) {
-          if (!editables[0].isContentEditable) {
-            editables[0].contentEditable = 'true';
-            editables[1].contentEditable = 'true';
-            editables[2].contentEditable = 'true';
+  
+          if (this.id.isContentEditable) {
             editBtn.innerHTML = 'Save Changes';
             editBtn.style.backgroundColor = '#6F9';
         } else {
            // Disable Editing
-          editables[0].contentEditable = 'false';
-          editables[1].contentEditable = 'false';
-          editables[2].contentEditable = 'false';
+          this.id.contentEditable = 'false';
           // Change Button Text and Color
           editBtn.innerHTML = 'Enable Editing';
           editBtn.style.backgroundColor = '#F96';
           // Save the data in localStorage 
-          for (var i = 0; i < editables.length; i++) {
-            localStorage.setItem(editables[i].getAttribute('id'), editables[i].innerHTML);
-          }
+          //for (var i = 0; i < editables.length; i++) {
+            //localStorage.setItem(editables[i].getAttribute('id'), editables[i].innerHTML);
+          //}
          }
-});
 }
 
 async function logoutSubmit() { 

@@ -1,6 +1,3 @@
-import { enableRipple } from '@syncfusion/ej2-base';
-import { InPlaceEditor } from '@syncfusion/ej2-inplace-editor';
-enableRipple(true);
 
 window.onload = async() => {
   var postForm = document.getElementById("newPostTextArea");
@@ -105,6 +102,7 @@ async function fetchPosts() {
         for( var i = 0; i < remove.length; i++) {
           remove[i].addEventListener("click", removePost);
         }
+
       }
   )
 }

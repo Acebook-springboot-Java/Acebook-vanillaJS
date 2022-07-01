@@ -1,5 +1,5 @@
 
-window.onload = () => {
+window.onload = async() => {
   var postForm = document.getElementById("newPostTextArea");
   postForm.addEventListener("submit", submit);
 
@@ -15,30 +15,63 @@ window.onload = () => {
   var logout = document.getElementById("logout");
   logout.addEventListener("click", logoutSubmit);
 
-  getPosts();
+  await getPosts();
 };
 
-
-  
-async function getPosts() {
-  await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
-    method: 'GET',
-    credentials: "include",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer"
-    },
-  })
-    .then(response =>
-      response.json().then(data => ({
-        data: data,
-        status: response.status
-      })
-      ).then(res => {
-        addPosts(res.data);
-      }));
+async function getPosts() { 
+  let response = await fetchPosts();
+  console.log(`status code: ${response.status}`);
+  if (response.status == "403") { 
+    Swal.fire({
+      icon: 'error',
+      title: 'Not Authorized',
+      text: `Please log in`,
+      showConfirmButton: false,
+      timer: 1500
+    });
+    setTimeout(function() {
+      window.location.href = "../../Views/login/login.html"
+    }, 1500);
+  }
+  if (response.status == "200") {
+    response.json().then(data => ({
+          data: data,
+          status: response.status
+        })).then(res => {
+              addPosts(res.data);
+            });
+  }
+    // .then(response =>
+    //   response.json().then(data => ({
+    //     data: data,
+    //     status: response.status
+    //   }))
+    // .then(res => {
+    //     addPosts(res.data);
+    //   }));
 }
+  
+async function fetchPosts() {
+  let response;
+  try {
+    response = await fetch('https://rocky-forest-99036.herokuapp.com/posts', {
+      method: 'GET',
+      credentials: "include",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer"
+      }
+    })
+    return response;
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+
+
+
 
 
  async function addPosts(data) {

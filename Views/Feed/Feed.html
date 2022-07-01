@@ -32,7 +32,68 @@
 <body>
   <h1>Feed</h1>
 
+  <main class="mx-auto max-w-4xl bg-gray-200 h-screen">
+    <nav class="p-4 bg-indigo-700 text-indigo-100">
+      <div>Edit in place</div>
+      <div class="text-xs text-indigo-400 font-thin">Alpine.js + TailwindCSS</div>
+    </nav>
   
+    <section class="flex flex-wrap p-4">
+      <div
+           x-data="
+              {
+                   origText: 'click the text to edit it',
+                   newText: null,
+                   isEditing: false,
+                   edit: function() {
+                      this.isEditing = true;
+                   },
+                   focus: function() {
+                      const textInput = this.$refs.textInput;
+                      textInput.focus();
+                      textInput.select();                 
+                   },
+                   save: function() {
+                      this.origText = this.newText;
+                      this.isEditing = false;
+                   },
+                   cancel: function() {
+                      this.newText = this.origText;
+                      this.isEditing = false;
+                   },
+              }
+           "
+           x-init="newText = origText"
+      >
+        <div
+             class="p-2 border border-gray-200"
+             x-show=!isEditing
+         >
+          <span
+              class="border-b border-dotted border-blue-600"
+              x-text="newText"
+              @click="edit(); $nextTick(() => focus())"
+          ></span>
+        </div>
+        <label x-show=isEditing class="flex flex-col">
+          <div class="flex mb-4">
+            <input
+                  type="text"
+                  x-ref="textInput"
+                  class="p-2 border"
+                  x-model="newText"
+                  @keydown.enter="save"
+                  @keydown.escape="cancel"
+            >
+            <button type="button" class="p-2 ml-2" title="Cancel" @click="cancel">ⓧ</button>
+            <button type="button" class="p-2 ml-2" title="Save" @click="save">✅</button>
+          </div>
+          <small class="text-xs">→ hit Enter to save</small>
+          <small class="text-xs">→ hit Esc to cancel</small>
+        </label>
+      </div>
+    </section>
+  </main>
 
   <form id="newPostTextArea">
     <textarea id="newPost" name="newPost" placeholder="What's on your mind?" rows="8" cols="50"></textarea>

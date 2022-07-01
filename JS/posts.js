@@ -1,3 +1,6 @@
+import { enableRipple } from '@syncfusion/ej2-base';
+import { InPlaceEditor } from '@syncfusion/ej2-inplace-editor';
+enableRipple(true);
 
 window.onload = async() => {
   var postForm = document.getElementById("newPostTextArea");
